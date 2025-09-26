@@ -17,7 +17,7 @@ QuantMesh is a quantitative portfolio analytics platform that connects to your Z
 
 ```bash
 # Clone this repository
-git clone https://github.com/your-username/quantmesh-docker.git
+git clone https://github.com/kxzongoing/quantmesh-docker.git
 cd quantmesh-docker
 
 # Run the setup script
@@ -157,9 +157,9 @@ docker compose restart postgres
 
 ## 🆘 Support
 
-- **Documentation**: [Full Documentation](https://github.com/your-username/quantmesh-docker)
-- **Issues**: [GitHub Issues](https://github.com/your-username/quantmesh-docker/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/quantmesh-docker/discussions)
+- **Documentation**: [Full Documentation](https://github.com/kxzongoing/quantmesh-docker)
+- **Issues**: [GitHub Issues](https://github.com/kxzongoing/quantmesh-docker/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/kxzongoing/quantmesh-docker/discussions)
 
 ## 📄 License
 
