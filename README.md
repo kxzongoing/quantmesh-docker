@@ -42,16 +42,14 @@ When you run the setup script for the first time, you'll see:
    ./scripts/setup.sh
    ```
 
-````
-
-### Manual Setup
+**Manual Setup**
 
 1. **Configure Environment**
 
    ```bash
    cp .env.example .env
    # Edit .env with your configuration
-````
+   ```
 
 2. **Start Services**
 
