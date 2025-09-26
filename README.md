@@ -51,6 +51,8 @@ When you run the setup script for the first time, you'll see:
    # Edit .env with your configuration
    ```
 
+### Next Steps
+
 2. **Start Services**
 
    ```bash
