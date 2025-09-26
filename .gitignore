@@ -57,3 +57,6 @@ venv.bak/
 *.db
 *.sqlite
 *.sqlite3
+
+# Personal notes and logs
+notes.md
