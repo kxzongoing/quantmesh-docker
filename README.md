@@ -51,7 +51,7 @@ When you run the setup script for the first time, you'll see:
    ./scripts/setup.sh
    ```
 
-   # This will automatically pull images and start the docker containers. But if not, use Step 3 below.
+   **This will automatically pull images and start the docker containers. But if not, use Step 3 below.**
 
 3. **Start Services**
 
@@ -113,13 +113,13 @@ docker compose up -d
 
 ## 📊 Services
 
-| Service        | Image                                  | Description         |
-| -------------- | -------------------------------------- | ------------------- |
-| **Backend**    | `kxzongoing/quantmesh-backend:latest`  | FastAPI application |
-| **Frontend**   | `kxzongoing/quantmesh-frontend:latest` | React dashboard     |
-| **Nginx**      | `kxzongoing/quantmesh-nginx:latest`    | Reverse proxy       |
-| **PostgreSQL** | `postgres:15-alpine`                   | Database            |
-| **Redis**      | `redis:7-alpine`                       | Cache               |
+| Service        | Image                                  | Description                   |
+| -------------- | -------------------------------------- | ----------------------------- |
+| **Backend**    | `kxzongoing/quantmesh-backend:latest`  | FastAPI + FastMCP application |
+| **Frontend**   | `kxzongoing/quantmesh-frontend:latest` | React dashboard               |
+| **Nginx**      | `kxzongoing/quantmesh-nginx:latest`    | Reverse proxy                 |
+| **PostgreSQL** | `postgres:15-alpine`                   | Database                      |
+| **Redis**      | `redis:7-alpine`                       | Cache                         |
 
 ## 🔧 Troubleshooting
 
