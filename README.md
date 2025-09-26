@@ -27,12 +27,14 @@ cd quantmesh-docker
 ### Manual Setup
 
 1. **Configure Environment**
+
    ```bash
    cp .env.example .env
    # Edit .env with your configuration
    ```
 
 2. **Start Services**
+
    ```bash
    docker compose up -d
    ```
@@ -62,12 +64,12 @@ KITE_API_SECRET=your_kite_api_secret
 
 ### Port Configuration
 
-| Service | Port | Description |
-|---------|------|-------------|
-| Nginx | 80 | Main application |
-| Backend | 8000 | API server |
-| PostgreSQL | 5433 | Database |
-| Redis | 6379 | Cache |
+| Service    | Port | Description      |
+| ---------- | ---- | ---------------- |
+| Nginx      | 80   | Main application |
+| Backend    | 8000 | API server       |
+| PostgreSQL | 5433 | Database         |
+| Redis      | 6379 | Cache            |
 
 ## 🛠️ Management Commands
 
@@ -91,19 +93,20 @@ docker compose up -d
 
 ## 📊 Services
 
-| Service | Image | Description |
-|---------|-------|-------------|
-| **Backend** | `kxzongoing/quantmesh-backend:latest` | FastAPI application |
-| **Frontend** | `kxzongoing/quantmesh-frontend:latest` | React dashboard |
-| **Nginx** | `kxzongoing/quantmesh-nginx:latest` | Reverse proxy |
-| **PostgreSQL** | `postgres:15-alpine` | Database |
-| **Redis** | `redis:7-alpine` | Cache |
+| Service        | Image                                  | Description         |
+| -------------- | -------------------------------------- | ------------------- |
+| **Backend**    | `kxzongoing/quantmesh-backend:latest`  | FastAPI application |
+| **Frontend**   | `kxzongoing/quantmesh-frontend:latest` | React dashboard     |
+| **Nginx**      | `kxzongoing/quantmesh-nginx:latest`    | Reverse proxy       |
+| **PostgreSQL** | `postgres:15-alpine`                   | Database            |
+| **Redis**      | `redis:7-alpine`                       | Cache               |
 
 ## 🔧 Troubleshooting
 
 ### Common Issues
 
 **Port 5432 already in use:**
+
 ```bash
 # Check what's using the port
 lsof -i :5432
@@ -112,6 +115,7 @@ brew services stop postgresql@14  # macOS
 ```
 
 **Services not starting:**
+
 ```bash
 # Check logs
 docker compose logs
@@ -121,6 +125,7 @@ docker compose restart backend
 ```
 
 **Database connection issues:**
+
 ```bash
 # Check PostgreSQL logs
 docker compose logs postgres
