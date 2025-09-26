@@ -10,6 +10,7 @@ echo "🚀 Setting up QuantMesh Docker..."
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
     echo "❌ Docker is not installed. Please install Docker first."
+    echo "📥 Download Docker Desktop: https://www.docker.com/products/docker-desktop/"
     exit 1
 fi
 
@@ -17,6 +18,38 @@ fi
 if ! command -v docker-compose &> /dev/null && ! docker compose version &> /dev/null; then
     echo "❌ Docker Compose is not installed. Please install Docker Compose first."
     exit 1
+fi
+
+# Check if Docker daemon is running
+echo "🔍 Checking Docker daemon status..."
+if ! docker info &> /dev/null; then
+    echo "❌ Docker daemon is not running!"
+    echo ""
+    echo "🔧 Please start Docker Desktop:"
+    echo "   • macOS/Windows: Open Docker Desktop application"
+    echo "   • Linux: sudo systemctl start docker"
+    echo ""
+    echo "⏳ Waiting for Docker to start..."
+    echo "   (This may take 30-60 seconds on first startup)"
+    
+    # Wait for Docker to start (max 60 seconds)
+    for i in {1..12}; do
+        if docker info &> /dev/null; then
+            echo "✅ Docker daemon is now running!"
+            break
+        fi
+        echo "   Attempt $i/12: Still waiting for Docker..."
+        sleep 5
+    done
+    
+    # Final check
+    if ! docker info &> /dev/null; then
+        echo "❌ Docker daemon failed to start after 60 seconds."
+        echo "🔧 Please manually start Docker Desktop and run this script again."
+        exit 1
+    fi
+else
+    echo "✅ Docker daemon is running!"
 fi
 
 # Create .env file if it doesn't exist
