@@ -13,7 +13,7 @@ QuantMesh is a quantitative portfolio analytics platform that connects to your Z
 - **4GB RAM** minimum
 - **10GB free disk space**
 
-### One-Command Setup
+### One-Command Setup - Execute these only once when you set QuantMesh for the first time.
 
 ```bash
 # Clone this repository
@@ -110,6 +110,8 @@ docker compose up -d
 ```bash
 # Check what's using the port
 lsof -i :5432
+or
+lsof -i :5433
 # Stop conflicting PostgreSQL service
 brew services stop postgresql@14  # macOS
 ```
