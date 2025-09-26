@@ -24,6 +24,26 @@ cd quantmesh-docker
 ./scripts/setup.sh
 ```
 
+**First Run Output:**
+When you run the setup script for the first time, you'll see:
+
+```
+🚀 Setting up QuantMesh Docker...
+📝 Creating .env file from template...
+✅ Created .env file. Please edit it with your configuration.
+⚠️  IMPORTANT: Update the passwords and secrets in .env before running!
+```
+
+**Next Steps:**
+
+1. Edit the `.env` file with your configuration (see [Configuration](#️-configuration) section)
+2. Run the setup script again:
+   ```bash
+   ./scripts/setup.sh
+   ```
+
+````
+
 ### Manual Setup
 
 1. **Configure Environment**
@@ -31,7 +51,7 @@ cd quantmesh-docker
    ```bash
    cp .env.example .env
    # Edit .env with your configuration
-   ```
+````
 
 2. **Start Services**
 
