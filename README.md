@@ -8,10 +8,12 @@ QuantMesh is a quantitative portfolio analytics platform that connects to your Z
 
 ### Prerequisites
 
-- **Docker** (20.10+)
+- **Docker** (20.10+) - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - **Docker Compose** (2.0+)
 - **4GB RAM** minimum
 - **10GB free disk space**
+
+> **⚠️ Important**: Make sure Docker Desktop is running before proceeding. If you see "Cannot connect to the Docker daemon" errors, start Docker Desktop first.
 
 ### One-Command Setup - Execute these only once when you set QuantMesh for the first time.
 
@@ -19,6 +21,9 @@ QuantMesh is a quantitative portfolio analytics platform that connects to your Z
 # Clone this repository
 git clone https://github.com/kxzongoing/quantmesh-docker.git
 cd quantmesh-docker
+
+# Verify Docker is running (optional but recommended)
+docker --version
 
 # Run the setup script
 ./scripts/setup.sh
@@ -124,6 +129,16 @@ docker compose up -d
 ## 🔧 Troubleshooting
 
 ### Common Issues
+
+**Docker daemon not running:**
+
+```bash
+# Error: "Cannot connect to the Docker daemon at unix:///Users/username/.docker/run/docker.sock"
+# Solution: Start Docker Desktop
+# - macOS/Windows: Open Docker Desktop application
+# - Linux: sudo systemctl start docker
+# - Verify: docker --version
+```
 
 **Port 5432 already in use:**
 
