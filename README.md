@@ -37,29 +37,29 @@ When you run the setup script for the first time, you'll see:
 **Next Steps:**
 
 1. Edit the `.env` file with your configuration (see [Configuration](#️-configuration) section)
-2. Run the setup script again:
-   ```bash
-   ./scripts/setup.sh
-   ```
 
-**Manual Setup**
-
-1. **Configure Environment**
+   **Or; manual setup for configuring environment - if required**
 
    ```bash
    cp .env.example .env
    # Edit .env with your configuration
    ```
 
-### Next Steps
+2. Run the setup script again:
 
-2. **Start Services**
+   ```bash
+   ./scripts/setup.sh
+   ```
+
+   # This will automatically pull images and start the docker containers. But if not, use Step 3 below.
+
+3. **Start Services**
 
    ```bash
    docker compose up -d
    ```
 
-3. **Access Application**
+4. **Access Application**
    - **Main App**: http://localhost
    - **API**: http://localhost:8000
    - **Health Check**: http://localhost/health
