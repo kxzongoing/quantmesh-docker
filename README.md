@@ -54,7 +54,7 @@ The platform is focused on analytical depth, automation, and intuitive dashboard
 
 ## 🚀 **QuantMesh Platform Features**
 
-> **Professional-grade portfolio management and analytics platform with advanced quantitative analysis tools.**
+> **Aims to be a professional-grade portfolio management and analytics platform offering advanced quantitative analysis.**
 
 ---
 
