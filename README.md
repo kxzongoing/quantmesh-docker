@@ -6,24 +6,24 @@ QuantMesh is a quantitative portfolio analytics platform that connects to your Z
 
 ## 📋 Table of Contents
 
-| Section                                                                    | Description                                    |
-| -------------------------------------------------------------------------- | ---------------------------------------------- |
-| [🔹 What it is](#-what-it-is-)                                             | Platform overview and purpose                  |
-| [🧠 What It Does](#-what-it-does)                                          | Core functionality and features                |
-| [💡 Why It Matters](#-why-it-matters)                                      | Value proposition and mission                  |
-| [🚀 Platform Features](#-quantmesh-platform-features)                      | Detailed feature breakdown                     |
-| [⚠️ Caveats & Disclaimers](#-caveats--disclaimers)                         | Important limitations                          |
-| [🚀 Quick Start](#-quick-start)                                            | Installation and setup guide                  |
-| [🌐 Access Points](#-access-points)                                        | Application URLs and endpoints                 |
-| [📊 Services](#-services)                                                  | Service architecture and ports                 |
-| [⚙️ Configuration](#️-configuration)                                       | Environment setup and API configuration       |
-| [🛠️ Management Commands](#️-management-commands)                           | Docker management and operations               |
-| [🔧 Troubleshooting](#-troubleshooting)                                    | Common issues and solutions                    |
-| [⚠️ Important Usage Notes](#️-important-usage-notes)                       | Critical app usage guidelines                  |
-| [🔒 Security](#-security)                                                  | Security best practices                        |
-| [📈 Features](#-features)                                                  | Key platform capabilities                      |
-| [🆘 Support](#-support)                                                    | Documentation and help resources               |
-| [📄 License](#-license)                                                    | Licensing information and terms                |
+| Section                                               | Description                             |
+| ----------------------------------------------------- | --------------------------------------- |
+| [🔹 What it is](#-what-it-is-)                        | Platform overview and purpose           |
+| [🧠 What It Does](#-what-it-does)                     | Core functionality and features         |
+| [💡 Why It Matters](#-why-it-matters)                 | Value proposition and mission           |
+| [🚀 Platform Features](#-quantmesh-platform-features) | Detailed feature breakdown              |
+| [⚠️ Caveats & Disclaimers](#️-caveats--disclaimers)   | Important limitations                   |
+| [🚀 Quick Start](#-quick-start)                       | Installation and setup guide            |
+| [🌐 Access Points](#-access-points)                   | Application URLs and endpoints          |
+| [📊 Services](#-services)                             | Service architecture and ports          |
+| [⚙️ Configuration](#️-configuration)                  | Environment setup and API configuration |
+| [🛠️ Management Commands](#️-management-commands)      | Docker management and operations        |
+| [🔧 Troubleshooting](#-troubleshooting)               | Common issues and solutions             |
+| [⚠️ Important Usage Notes](#️-important-usage-notes)  | Critical app usage guidelines           |
+| [🔒 Security](#-security)                             | Security best practices                 |
+| [📈 Features](#-features)                             | Key platform capabilities               |
+| [🆘 Support](#-support)                               | Documentation and help resources        |
+| [📄 License](#-license)                               | Licensing information and terms         |
 
 ---
 
