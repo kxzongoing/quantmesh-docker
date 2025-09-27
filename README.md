@@ -200,7 +200,15 @@ docker compose restart postgres
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Business Source License (BSL) 1.1 - see the [LICENSE](LICENSE) file for details.
+
+🔹 Key Features of this License
+
+- **Free** for non-commercial & research.
+- **Commercial users** must get a license from you.
+- **Redistribution allowed** only with attribution & no rebranding.
+- **Automatic conversion** to AGPL.
+- **Protects QuantMesh trademark & Name, IP and other elements.**
 
 ---
 
