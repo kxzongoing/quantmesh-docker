@@ -398,7 +398,7 @@ docker compose -f docker-compose.linux.yml logs -f
 docker compose up -d
 
 # Solution 3: Build images locally for your platform
-docker buildx build --platform linux/amd64 -t kxzongoing/quantmesh-backend:latest .
+docker buildx build --platform linux/amd64 -t <yourDockerUserName>/quantmesh-backend:latest .
 ```
 
 **Platform Architecture Warnings (Normal):**
@@ -522,9 +522,9 @@ docker compose restart postgres
 docker buildx create --name multiplatform --use --bootstrap
 
 # Build and push all images
-docker buildx build --platform linux/amd64,linux/arm64 --tag kxzongoing/quantmesh-backend:latest --push ./backend
-docker buildx build --platform linux/amd64,linux/arm64 --tag kxzongoing/quantmesh-frontend:latest --push ./frontend
-docker buildx build --platform linux/amd64,linux/arm64 --tag kxzongoing/quantmesh-nginx:latest --push ./nginx
+docker buildx build --platform linux/amd64,linux/arm64 --tag <yourDockerUserName>/quantmesh-backend:latest --push ./backend
+docker buildx build --platform linux/amd64,linux/arm64 --tag <yourDockerUserName>/quantmesh-frontend:latest --push ./frontend
+docker buildx build --platform linux/amd64,linux/arm64 --tag <yourDockerUserName>/quantmesh-nginx:latest --push ./nginx
 ```
 
 > **📋 Detailed Instructions**: See [BUILD-MULTIPLATFORM.md](BUILD-MULTIPLATFORM.md) for complete build guide.
