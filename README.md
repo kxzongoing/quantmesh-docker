@@ -6,26 +6,26 @@ QuantMesh is a quantitative portfolio analytics platform that connects to your Z
 
 ## 📋 Table of Contents
 
-| Section                                               | Description                             |
-| ----------------------------------------------------- | --------------------------------------- |
-| [🔹 What it is](#-what-it-is-)                        | Platform overview and purpose           |
-| [🧠 What It Does](#-what-it-does)                     | Core functionality and features         |
-| [💡 Why It Matters](#-why-it-matters)                 | Value proposition and mission           |
-| [🚀 Platform Features](#-quantmesh-platform-features) | Detailed feature breakdown              |
-| [⚠️ Caveats & Disclaimers](#️-caveats--disclaimers)   | Important limitations                   |
-| [🚀 Quick Start](#-quick-start)                       | Installation and setup guide            |
-| [🌍 Cross-Platform Support](#-cross-platform-support) | Platform detection and compatibility    |
-| [🌐 Access Points](#-access-points)                   | Application URLs and endpoints          |
-| [📊 Services](#-services)                             | Service architecture and ports          |
-| [⚙️ Configuration](#️-configuration)                  | Environment setup and API configuration |
-| [🛠️ Management Commands](#️-management-commands)      | Docker management and operations        |
-| [🔧 Troubleshooting](#-troubleshooting)               | Common issues and solutions             |
-| [🚀 Building Multi-Platform Images](#-building-multi-platform-images) | Developer build instructions |
-| [⚠️ Important Usage Notes](#️-important-usage-notes)  | Critical app usage guidelines           |
-| [🔒 Security](#-security)                             | Security best practices                 |
-| [📈 Features](#-features)                             | Key platform capabilities               |
-| [🆘 Support](#-support)                               | Documentation and help resources        |
-| [📄 License](#-license)                               | Licensing information and terms         |
+| Section                                                               | Description                             |
+| --------------------------------------------------------------------- | --------------------------------------- |
+| [🔹 What it is](#-what-it-is-)                                        | Platform overview and purpose           |
+| [🧠 What It Does](#-what-it-does)                                     | Core functionality and features         |
+| [💡 Why It Matters](#-why-it-matters)                                 | Value proposition and mission           |
+| [🚀 Platform Features](#-quantmesh-platform-features)                 | Detailed feature breakdown              |
+| [⚠️ Caveats & Disclaimers](#️-caveats--disclaimers)                   | Important limitations                   |
+| [🚀 Quick Start](#-quick-start)                                       | Installation and setup guide            |
+| [🌍 Cross-Platform Support](#-cross-platform-support)                 | Platform detection and compatibility    |
+| [🌐 Access Points](#-access-points)                                   | Application URLs and endpoints          |
+| [📊 Services](#-services)                                             | Service architecture and ports          |
+| [⚙️ Configuration](#️-configuration)                                  | Environment setup and API configuration |
+| [🛠️ Management Commands](#️-management-commands)                      | Docker management and operations        |
+| [🔧 Troubleshooting](#-troubleshooting)                               | Common issues and solutions             |
+| [🚀 Building Multi-Platform Images](#-building-multi-platform-images) | Developer build instructions            |
+| [⚠️ Important Usage Notes](#️-important-usage-notes)                  | Critical app usage guidelines           |
+| [🔒 Security](#-security)                                             | Security best practices                 |
+| [📈 Features](#-features)                                             | Key platform capabilities               |
+| [🆘 Support](#-support)                                               | Documentation and help resources        |
+| [📄 License](#-license)                                               | Licensing information and terms         |
 
 ---
 
@@ -181,14 +181,14 @@ QuantMesh Docker automatically detects your platform and uses the optimal config
 
 ### ✅ Supported Platforms
 
-| Platform | Architecture | Auto-Detected | Compose File | Notes |
-|----------|-------------|---------------|--------------|-------|
-| **Windows** | AMD64 | ✅ | `docker-compose.windows.yml` | Forces AMD64 platform |
-| **Windows** | ARM64 | ✅ | `docker-compose.windows-arm.yml` | For ARM-based Windows |
-| **macOS** | ARM64 (M1/M2) | ✅ | `docker-compose.macos.yml` | Native ARM64 support |
-| **macOS** | Intel | ✅ | `docker-compose.macos-intel.yml` | Intel Mac support |
-| **Linux** | AMD64 | ✅ | `docker-compose.linux.yml` | Standard Linux |
-| **Linux** | ARM64 | ✅ | `docker-compose.linux-arm.yml` | ARM-based Linux |
+| Platform    | Architecture  | Auto-Detected | Compose File                     | Notes                 |
+| ----------- | ------------- | ------------- | -------------------------------- | --------------------- |
+| **Windows** | AMD64         | ✅            | `docker-compose.windows.yml`     | Forces AMD64 platform |
+| **Windows** | ARM64         | ✅            | `docker-compose.windows-arm.yml` | For ARM-based Windows |
+| **macOS**   | ARM64 (M1/M2) | ✅            | `docker-compose.macos.yml`       | Native ARM64 support  |
+| **macOS**   | Intel         | ✅            | `docker-compose.macos-intel.yml` | Intel Mac support     |
+| **Linux**   | AMD64         | ✅            | `docker-compose.linux.yml`       | Standard Linux        |
+| **Linux**   | ARM64         | ✅            | `docker-compose.linux-arm.yml`   | ARM-based Linux       |
 
 ### 🔍 How It Works
 
@@ -210,43 +210,8 @@ QuantMesh Docker automatically detects your platform and uses the optimal config
 
 #### For Windows Users:
 
-**Option 1: Quick Setup (Recommended)**
-```cmd
-# First, install Docker Desktop if not already installed
-# Download from: https://www.docker.com/products/docker-desktop/
+**PowerShell Setup**
 
-# Clone this repository
-git clone https://github.com/kxzongoing/quantmesh-docker.git
-cd quantmesh-docker
-
-# Run the Windows setup script (double-click or run from command prompt)
-setup-windows.bat
-```
-
-**Option 2: Using PowerShell**
-```powershell
-# Clone this repository
-git clone https://github.com/kxzongoing/quantmesh-docker.git
-cd quantmesh-docker
-
-# Run the PowerShell setup script
-.\setup-windows.ps1
-```
-
-**Option 3: Manual Setup**
-```cmd
-# Clone this repository
-git clone https://github.com/kxzongoing/quantmesh-docker.git
-cd quantmesh-docker
-
-# Verify Docker is running (optional but recommended)
-docker --version
-
-# Run the Windows setup script
-scripts\setup.bat
-```
-
-**Option 4: PowerShell Manual Setup**
 ```powershell
 # Clone this repository
 git clone https://github.com/kxzongoing/quantmesh-docker.git
@@ -361,6 +326,7 @@ SECRET_KEY=your_secret_key_32_chars_minimum
 ## 🛠️ Management Commands
 
 ### Universal Commands (Auto-Detects Platform)
+
 ```bash
 # View logs
 docker compose logs -f
@@ -380,6 +346,7 @@ docker compose up -d
 ```
 
 ### Platform-Specific Commands (If Needed)
+
 ```bash
 # Windows AMD64
 docker compose -f docker-compose.windows.yml logs -f
@@ -525,11 +492,12 @@ docker compose restart postgres
 - **Discussions**: [GitHub Discussions](https://github.com/kxzongoing/quantmesh-docker/discussions)
 - **Email**: [founder@quantmesh.in](mailto:founder@quantmesh.in)
 
-## 🚀 Building Multi-Platform Images
+## 🚀 Building Multi-Platform Images | Learning / Information only.
 
-**For Developers**: If you need to build and push multi-platform images to Docker Hub:
+**For Developers**: If you need to build and push your own multi-platform images to Docker Hub:
 
 ### Quick Build (Automated)
+
 ```bash
 # macOS/Linux
 ./build-multiplatform.sh
@@ -539,6 +507,7 @@ docker compose restart postgres
 ```
 
 ### Manual Build
+
 ```bash
 # Set up multi-platform builder
 docker buildx create --name multiplatform --use --bootstrap
