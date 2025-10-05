@@ -269,6 +269,15 @@ After editing .env, run this script again to start the services.
 
 2. Run the setup script again:
 
+   - For Windows
+
+   ```bash
+   # Run the PowerShell setup script
+   .\scripts\setup.ps1
+   ```
+
+   - For Linux/macOS
+
    ```bash
    ./scripts/setup.sh
    ```
