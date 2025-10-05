@@ -44,7 +44,7 @@ services:
   # Backend FastAPI Service
   backend:
     image: kxzongoing/quantmesh-backend:latest
-    platform: linux/amd64
+    platform: linux/arm64
     container_name: quantmesh_backend
     restart: unless-stopped
     environment:
@@ -99,7 +99,7 @@ services:
   # Frontend React Service
   frontend:
     image: kxzongoing/quantmesh-frontend:latest
-    platform: linux/amd64
+    platform: linux/arm64
     container_name: quantmesh_frontend
     restart: unless-stopped
     environment:
@@ -116,7 +116,7 @@ services:
   # Nginx Reverse Proxy
   nginx:
     image: kxzongoing/quantmesh-nginx:latest
-    platform: linux/amd64
+    platform: linux/arm64
     container_name: quantmesh_nginx
     restart: unless-stopped
     ports:

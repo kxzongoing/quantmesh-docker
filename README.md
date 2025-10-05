@@ -14,11 +14,13 @@ QuantMesh is a quantitative portfolio analytics platform that connects to your Z
 | [🚀 Platform Features](#-quantmesh-platform-features) | Detailed feature breakdown              |
 | [⚠️ Caveats & Disclaimers](#️-caveats--disclaimers)   | Important limitations                   |
 | [🚀 Quick Start](#-quick-start)                       | Installation and setup guide            |
+| [🌍 Cross-Platform Support](#-cross-platform-support) | Platform detection and compatibility    |
 | [🌐 Access Points](#-access-points)                   | Application URLs and endpoints          |
 | [📊 Services](#-services)                             | Service architecture and ports          |
 | [⚙️ Configuration](#️-configuration)                  | Environment setup and API configuration |
 | [🛠️ Management Commands](#️-management-commands)      | Docker management and operations        |
 | [🔧 Troubleshooting](#-troubleshooting)               | Common issues and solutions             |
+| [🚀 Building Multi-Platform Images](#-building-multi-platform-images) | Developer build instructions |
 | [⚠️ Important Usage Notes](#️-important-usage-notes)  | Critical app usage guidelines           |
 | [🔒 Security](#-security)                             | Security best practices                 |
 | [📈 Features](#-features)                             | Key platform capabilities               |
@@ -164,14 +166,100 @@ QuantMesh isn’t an advisory tool — it’s a grassroots initiative for the re
 
 ### Prerequisites
 
-- **Docker** (20.10+) - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- **Docker Compose** (2.0+)
+- **Docker Desktop** (20.10+) - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- **Docker Compose** (2.0+) - Included with Docker Desktop
 - **4GB RAM** minimum
 - **10GB free disk space**
 
 > **⚠️ Important**: Make sure Docker Desktop is running before proceeding. If you see "Cannot connect to the Docker daemon" errors, start Docker Desktop first.
 
-### One-Command Setup - Execute these only once when you set QuantMesh for the first time.
+> **📋 Windows Users**: See [INSTALL-WINDOWS.md](INSTALL-WINDOWS.md) for detailed Windows installation instructions.
+
+## 🌍 Cross-Platform Support
+
+QuantMesh Docker automatically detects your platform and uses the optimal configuration. **No manual configuration required!**
+
+### ✅ Supported Platforms
+
+| Platform | Architecture | Auto-Detected | Compose File | Notes |
+|----------|-------------|---------------|--------------|-------|
+| **Windows** | AMD64 | ✅ | `docker-compose.windows.yml` | Forces AMD64 platform |
+| **Windows** | ARM64 | ✅ | `docker-compose.windows-arm.yml` | For ARM-based Windows |
+| **macOS** | ARM64 (M1/M2) | ✅ | `docker-compose.macos.yml` | Native ARM64 support |
+| **macOS** | Intel | ✅ | `docker-compose.macos-intel.yml` | Intel Mac support |
+| **Linux** | AMD64 | ✅ | `docker-compose.linux.yml` | Standard Linux |
+| **Linux** | ARM64 | ✅ | `docker-compose.linux-arm.yml` | ARM-based Linux |
+
+### 🔍 How It Works
+
+1. **Automatic Detection**: Scripts detect your OS and architecture
+2. **Smart Selection**: Choose the right `docker-compose.*.yml` file
+3. **Platform Optimization**: Use the best architecture for your system
+4. **Zero Configuration**: Works out of the box on any platform
+
+### 🚀 Benefits
+
+- **✅ Universal**: Works on any GitHub user's machine
+- **✅ Optimized**: Uses the best architecture for each platform
+- **✅ Error-Free**: No more platform mismatch warnings
+- **✅ Future-Proof**: Easy to add new platforms
+
+### 🚀 One-Command Setup - Universal Installation
+
+**The setup scripts automatically detect your platform and use the optimal configuration!**
+
+#### For Windows Users:
+
+**Option 1: Quick Setup (Recommended)**
+```cmd
+# First, install Docker Desktop if not already installed
+# Download from: https://www.docker.com/products/docker-desktop/
+
+# Clone this repository
+git clone https://github.com/kxzongoing/quantmesh-docker.git
+cd quantmesh-docker
+
+# Run the Windows setup script (double-click or run from command prompt)
+setup-windows.bat
+```
+
+**Option 2: Using PowerShell**
+```powershell
+# Clone this repository
+git clone https://github.com/kxzongoing/quantmesh-docker.git
+cd quantmesh-docker
+
+# Run the PowerShell setup script
+.\setup-windows.ps1
+```
+
+**Option 3: Manual Setup**
+```cmd
+# Clone this repository
+git clone https://github.com/kxzongoing/quantmesh-docker.git
+cd quantmesh-docker
+
+# Verify Docker is running (optional but recommended)
+docker --version
+
+# Run the Windows setup script
+scripts\setup.bat
+```
+
+**Option 4: PowerShell Manual Setup**
+```powershell
+# Clone this repository
+git clone https://github.com/kxzongoing/quantmesh-docker.git
+cd quantmesh-docker
+
+# Verify Docker is running (optional but recommended)
+docker --version
+
+# Run the PowerShell setup script
+.\scripts\setup.ps1
+```
+
+#### For Linux/macOS Users:
 
 ```bash
 # Clone this repository
@@ -193,6 +281,14 @@ When you run the setup script for the first time, you'll see:
 📝 Creating .env file from template...
 ✅ Created .env file. Please edit it with your configuration.
 ⚠️  IMPORTANT: Update the passwords and secrets in .env before running!
+
+📝 Please edit the .env file with your settings:
+   • POSTGRES_PASSWORD: Set a secure password for PostgreSQL
+   • REDIS_PASSWORD: Set a secure password for Redis
+   • SECRET_KEY: Set a 32+ character secret key
+   • KITE_API_KEY and KITE_API_SECRET: Optional, for Zerodha integration
+
+After editing .env, run this script again to start the services.
 ```
 
 **Next Steps:**
@@ -264,6 +360,7 @@ SECRET_KEY=your_secret_key_32_chars_minimum
 
 ## 🛠️ Management Commands
 
+### Universal Commands (Auto-Detects Platform)
 ```bash
 # View logs
 docker compose logs -f
@@ -282,6 +379,20 @@ docker compose pull
 docker compose up -d
 ```
 
+### Platform-Specific Commands (If Needed)
+```bash
+# Windows AMD64
+docker compose -f docker-compose.windows.yml logs -f
+
+# macOS ARM64 (M1/M2)
+docker compose -f docker-compose.macos.yml logs -f
+
+# Linux AMD64
+docker compose -f docker-compose.linux.yml logs -f
+```
+
+> **💡 Tip**: The setup scripts automatically use the correct compose file for your platform. You only need platform-specific commands if manually managing services.
+
 ## 🔧 Troubleshooting
 
 ### Common Issues
@@ -294,6 +405,54 @@ docker compose up -d
 # - macOS/Windows: Open Docker Desktop application
 # - Linux: sudo systemctl start docker
 # - Verify: docker --version
+```
+
+**Platform Architecture Issues:**
+
+```bash
+# Error: "image with reference kxzongoing/quantmesh-frontend:latest was found but does not provide the specified platform (linux/amd64)"
+# This happens when Docker images were built for a different architecture (ARM64 vs AMD64)
+# The setup scripts automatically try a fallback to the default configuration.
+# If both fail, you may need to build images locally for your platform.
+
+# Solution 1: Let the script handle it automatically (recommended)
+# The script will try platform-specific config first, then fallback to default
+
+# Solution 2: Use default configuration manually
+docker compose up -d
+
+# Solution 3: Build images locally for your platform
+docker buildx build --platform linux/amd64 -t kxzongoing/quantmesh-backend:latest .
+```
+
+**Platform Architecture Warnings (Normal):**
+
+```bash
+# Warning: "platform (linux/arm64) does not match the detected host platform (linux/amd64)"
+# This is NORMAL! The setup scripts handle this automatically.
+# The scripts use platform-specific compose files to prevent these warnings.
+# No action needed - just ignore these warnings.
+```
+
+**Windows-specific issues:**
+
+```cmd
+# Error: "Cannot connect to the Docker daemon"
+# Solution: Start Docker Desktop
+# - Open Docker Desktop from Start Menu
+# - Or run: "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+# - Wait for Docker Desktop to fully start (30-90 seconds)
+# - Verify: docker --version
+
+# Error: "scripts\setup.bat is not recognized"
+# Solution: Use full path or run from correct directory
+# - cd C:\path\to\quantmesh-docker
+# - scripts\setup.bat
+
+# Error: PowerShell execution policy
+# Solution: Allow script execution
+# - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# - Or run: powershell -ExecutionPolicy Bypass -File scripts\setup.ps1
 ```
 
 **Port 5432 already in use:**
@@ -365,6 +524,57 @@ docker compose restart postgres
 - **Issues**: [GitHub Issues](https://github.com/kxzongoing/quantmesh-docker/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/kxzongoing/quantmesh-docker/discussions)
 - **Email**: [founder@quantmesh.in](mailto:founder@quantmesh.in)
+
+## 🚀 Building Multi-Platform Images
+
+**For Developers**: If you need to build and push multi-platform images to Docker Hub:
+
+### Quick Build (Automated)
+```bash
+# macOS/Linux
+./build-multiplatform.sh
+
+# Windows
+.\build-multiplatform.ps1
+```
+
+### Manual Build
+```bash
+# Set up multi-platform builder
+docker buildx create --name multiplatform --use --bootstrap
+
+# Build and push all images
+docker buildx build --platform linux/amd64,linux/arm64 --tag kxzongoing/quantmesh-backend:latest --push ./backend
+docker buildx build --platform linux/amd64,linux/arm64 --tag kxzongoing/quantmesh-frontend:latest --push ./frontend
+docker buildx build --platform linux/amd64,linux/arm64 --tag kxzongoing/quantmesh-nginx:latest --push ./nginx
+```
+
+> **📋 Detailed Instructions**: See [BUILD-MULTIPLATFORM.md](BUILD-MULTIPLATFORM.md) for complete build guide.
+
+## 📁 Project Structure
+
+```
+quantmesh-docker/
+├── docker-compose.yml              # Default compose file
+├── docker-compose.windows.yml      # Windows AMD64 configuration
+├── docker-compose.windows-arm.yml  # Windows ARM64 configuration
+├── docker-compose.macos.yml        # macOS ARM64 (M1/M2) configuration
+├── docker-compose.macos-intel.yml  # macOS Intel configuration
+├── docker-compose.linux.yml        # Linux AMD64 configuration
+├── docker-compose.linux-arm.yml    # Linux ARM64 configuration
+├── scripts/
+│   ├── setup.sh                    # Linux/macOS setup script
+│   ├── setup.ps1                    # Windows PowerShell setup script
+│   ├── setup.bat                    # Windows batch setup script
+│   ├── detect-platform.sh           # Platform detection (Linux/macOS)
+│   └── detect-platform.ps1          # Platform detection (Windows)
+├── build-multiplatform.sh          # Multi-platform build script (macOS/Linux)
+├── build-multiplatform.ps1         # Multi-platform build script (Windows)
+├── CROSS-PLATFORM-SUPPORT.md       # Detailed cross-platform documentation
+├── BUILD-MULTIPLATFORM.md          # Multi-platform build guide
+├── PLATFORM-SOLUTION.md            # Platform architecture solutions
+└── INSTALL-WINDOWS.md              # Windows-specific installation guide
+```
 
 ## 📄 License
 

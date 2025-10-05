@@ -7,6 +7,16 @@ set -e
 
 echo "🚀 Setting up QuantMesh Docker..."
 
+# Load platform detection
+source "$(dirname "$0")/detect-platform.sh"
+
+# Detect platform and get appropriate docker-compose file
+PLATFORM=$(detect_platform)
+COMPOSE_FILE=$(get_docker_compose_file)
+
+echo "🔍 Detected platform: $PLATFORM"
+echo "📄 Using compose file: $COMPOSE_FILE"
+
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
     echo "❌ Docker is not installed. Please install Docker first."
@@ -211,19 +221,33 @@ fi
 # Create .env file if it doesn't exist
 if [ ! -f .env ]; then
     echo "📝 Creating .env file from template..."
-    cp .env.example .env
-    echo "✅ Created .env file. Please edit it with your configuration."
-    echo "⚠️  IMPORTANT: Update the passwords and secrets in .env before running!"
-    exit 0
+    if [ -f .env.example ]; then
+        cp .env.example .env
+        echo "✅ Created .env file. Please edit it with your configuration."
+        echo "⚠️  IMPORTANT: Update the passwords and secrets in .env before running!"
+        echo ""
+        echo "📝 Please edit the .env file with your settings:"
+        echo "   • POSTGRES_PASSWORD: Set a secure password for PostgreSQL"
+        echo "   • REDIS_PASSWORD: Set a secure password for Redis"
+        echo "   • SECRET_KEY: Set a 32+ character secret key"
+        echo "   • KITE_API_KEY and KITE_API_SECRET: Optional, for Zerodha integration"
+        echo ""
+        echo "After editing .env, run this script again to start the services."
+        exit 0
+    else
+        echo "❌ .env.example file not found!"
+        echo "Please ensure you're running this script from the quantmesh-docker directory."
+        exit 1
+    fi
 fi
 
 # Pull the latest images
 echo "📥 Pulling latest Docker images..."
-docker compose pull
+docker compose -f "$COMPOSE_FILE" pull
 
 # Start the services
 echo "🚀 Starting QuantMesh services..."
-docker compose up -d
+docker compose -f "$COMPOSE_FILE" up -d
 
 echo "✅ QuantMesh is starting up!"
 echo "🌐 Access the application at: http://localhost"

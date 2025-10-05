@@ -1,0 +1,3 @@
+@echo off
+echo Running QuantMesh setup via PowerShell...
+powershell -ExecutionPolicy Bypass -File "scripts\setup.ps1"
