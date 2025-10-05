@@ -173,7 +173,7 @@ QuantMesh isn’t an advisory tool — it’s a grassroots initiative for the re
 
 > **⚠️ Important**: Make sure Docker Desktop is running before proceeding. If you see "Cannot connect to the Docker daemon" errors, start Docker Desktop first.
 
-> **📋 Windows Users**: See [INSTALL-WINDOWS.md](INSTALL-WINDOWS.md) for detailed Windows installation instructions.
+> **📋 Windows Users**: See [docs/INSTALL-WINDOWS.md](docs/INSTALL-WINDOWS.md) for detailed Windows installation instructions.
 
 ## 🌍 Cross-Platform Support
 
@@ -509,10 +509,10 @@ docker compose restart postgres
 
 ```bash
 # macOS/Linux
-./build-multiplatform.sh
+./build/build-multiplatform.sh
 
 # Windows
-.\build-multiplatform.ps1
+.\build\build-multiplatform.ps1
 ```
 
 ### Manual Build
@@ -527,7 +527,7 @@ docker buildx build --platform linux/amd64,linux/arm64 --tag <yourDockerUserName
 docker buildx build --platform linux/amd64,linux/arm64 --tag <yourDockerUserName>/quantmesh-nginx:latest --push ./nginx
 ```
 
-> **📋 Detailed Instructions**: See [BUILD-MULTIPLATFORM.md](BUILD-MULTIPLATFORM.md) for complete build guide.
+> **📋 Detailed Instructions**: See [docs/BUILD-MULTIPLATFORM.md](docs/BUILD-MULTIPLATFORM.md) for complete build guide.
 
 ## 📁 Project Structure
 
@@ -540,18 +540,28 @@ quantmesh-docker/
 ├── docker-compose.macos-intel.yml  # macOS Intel configuration
 ├── docker-compose.linux.yml        # Linux AMD64 configuration
 ├── docker-compose.linux-arm.yml    # Linux ARM64 configuration
+├── nginx.conf                      # Nginx reverse proxy configuration
+├── .env.example                    # Environment variables template
 ├── scripts/
 │   ├── setup.sh                    # Linux/macOS setup script
 │   ├── setup.ps1                    # Windows PowerShell setup script
 │   ├── setup.bat                    # Windows batch setup script
 │   ├── detect-platform.sh           # Platform detection (Linux/macOS)
-│   └── detect-platform.ps1          # Platform detection (Windows)
-├── build-multiplatform.sh          # Multi-platform build script (macOS/Linux)
-├── build-multiplatform.ps1         # Multi-platform build script (Windows)
-├── CROSS-PLATFORM-SUPPORT.md       # Detailed cross-platform documentation
-├── BUILD-MULTIPLATFORM.md          # Multi-platform build guide
-├── PLATFORM-SOLUTION.md            # Platform architecture solutions
-└── INSTALL-WINDOWS.md              # Windows-specific installation guide
+│   ├── detect-platform.ps1          # Platform detection (Windows)
+│   └── init-db.sh                  # Database initialization script
+├── docs/                           # Documentation
+│   ├── CROSS-PLATFORM-SUPPORT.md   # Detailed cross-platform documentation
+│   ├── BUILD-MULTIPLATFORM.md      # Multi-platform build guide
+│   ├── PLATFORM-SOLUTION.md        # Platform architecture solutions
+│   ├── INSTALL-WINDOWS.md          # Windows-specific installation guide
+│   └── notes.md                    # Development notes
+├── build/                          # Build scripts
+│   ├── build-multiplatform.sh      # Multi-platform build script (macOS/Linux)
+│   ├── build-multiplatform.ps1     # Multi-platform build script (Windows)
+│   ├── setup-windows.bat           # Windows batch setup script
+│   └── setup-windows.ps1           # Windows PowerShell setup script
+├── README.md                       # Main documentation
+└── LICENSE                         # License file
 ```
 
 ## 📄 License
