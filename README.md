@@ -166,6 +166,7 @@ QuantMesh isn’t an advisory tool — it’s a grassroots initiative for the re
 
 ### Prerequisites
 
+- **VS Code** or similar IDE (Cursor/TRAE/IntelliJ IDEA etc...)
 - **Docker Desktop** (20.10+) - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - **Docker Compose** (2.0+) - Included with Docker Desktop
 - **4GB RAM** minimum
@@ -173,7 +174,7 @@ QuantMesh isn’t an advisory tool — it’s a grassroots initiative for the re
 
 > **⚠️ Important**: Make sure Docker Desktop is running before proceeding. If you see "Cannot connect to the Docker daemon" errors, start Docker Desktop first.
 
-> **📋 Windows Users**: See [docs/INSTALL-WINDOWS.md](docs/INSTALL-WINDOWS.md) for detailed Windows installation instructions.
+> **📋 Windows Users**: You may see [docs/INSTALL-WINDOWS.md](docs/INSTALL-WINDOWS.md) for detailed Windows installation instructions.
 
 ## 🌍 Cross-Platform Support
 
@@ -204,7 +205,11 @@ QuantMesh Docker automatically detects your platform and uses the optimal config
 - **✅ Error-Free**: No more platform mismatch warnings
 - **✅ Future-Proof**: Easy to add new platforms
 
-### 🚀 One-Command Setup - Universal Installation
+---
+
+### 🚀 ONE TIME & ONE-COMMAND Setup - Universal Installation (Any and All OS supported)
+
+**This configuration is to be executed only once and for the first time when setting up QuantMesh-Docker**
 
 **The setup scripts automatically detect your platform and use the optimal configuration!**
 
@@ -289,6 +294,53 @@ After editing .env, run this script again to start the services.
    ```bash
    docker compose up -d
    ```
+
+---
+
+## 🚀 **Daily Usage - Starting QuantMesh (After First Setup)**
+
+**Once you've completed the one-time setup above, here's what you need to do every time you want to use QuantMesh:**
+
+### **Step 1: Start Docker Desktop**
+
+- Open Docker Desktop application on your computer
+- Wait for it to fully start (you'll see the Docker icon in your system tray/menu bar)
+
+### **Step 2: Open Terminal/Command Prompt**
+
+- **Windows**: Open PowerShell or Command Prompt
+- **macOS**: Open Terminal
+- **Linux**: Open Terminal
+
+### **Step 3: Navigate to QuantMesh Directory**
+
+```bash
+cd /path/to/quantmesh-docker
+```
+
+_(Replace `/path/to/quantmesh-docker` with the actual location where you cloned the repository)_
+
+### **Step 4: Start QuantMesh**
+
+```bash
+docker compose up -d
+```
+
+### **Step 5: Access QuantMesh**
+
+- Open your web browser
+- Go to: **http://localhost**
+- You should see the QuantMesh dashboard
+
+### **When You're Done Using QuantMesh**
+
+```bash
+docker compose down
+```
+
+> **💡 Quick Tip**: Bookmark `http://localhost` in your browser for easy access!
+
+---
 
 ### 🌐 Access Points
 
